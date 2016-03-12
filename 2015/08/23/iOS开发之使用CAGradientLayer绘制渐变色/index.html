@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS开发之使用CAGradientLayer绘制渐变色 | 邦奇诺的个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="你们知道如何在 App 中绘制渐变色吗？如果不知道请往下看
+
+最近在 App 开发过程中，遇到了渐变色的要求，费劲一番周折，终于解决，特来与大家分享！绘制渐变色，需要用到 CoreAnimation 里面的一个类：CAGradientLayer，通过这个类，我们可以很方便的绘制渐变色。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之使用CAGradientLayer绘制渐变色">
+<meta property="og:url" content="http://yoursite.com/2015/08/23/iOS开发之使用CAGradientLayer绘制渐变色/index.html">
+<meta property="og:site_name" content="邦奇诺的个人主页">
+<meta property="og:description" content="你们知道如何在 App 中绘制渐变色吗？如果不知道请往下看
+
+最近在 App 开发过程中，遇到了渐变色的要求，费劲一番周折，终于解决，特来与大家分享！绘制渐变色，需要用到 CoreAnimation 里面的一个类：CAGradientLayer，通过这个类，我们可以很方便的绘制渐变色。">
+<meta property="og:image" content="http://v2.freep.cn/3tb_1603122149255w0n512293.png">
+<meta property="og:updated_time" content="2016-03-12T13:51:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之使用CAGradientLayer绘制渐变色">
+<meta name="twitter:description" content="你们知道如何在 App 中绘制渐变色吗？如果不知道请往下看
+
+最近在 App 开发过程中，遇到了渐变色的要求，费劲一番周折，终于解决，特来与大家分享！绘制渐变色，需要用到 CoreAnimation 里面的一个类：CAGradientLayer，通过这个类，我们可以很方便的绘制渐变色。">
+<meta name="twitter:image" content="http://v2.freep.cn/3tb_1603122149255w0n512293.png">
+  
+    <link rel="alternative" href="/atom.xml" title="邦奇诺的个人主页" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://v2.freep.cn/3tb_160312100458b7bm512293.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">邦奇诺</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">大家好！我是邦奇诺！QQ:476660805</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">大家好，我是邦奇诺，这里是我的新家！ www.iCoder-Heracles.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">邦奇诺</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://v2.freep.cn/3tb_160312100458b7bm512293.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">邦奇诺</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">大家好！我是邦奇诺！QQ:476660805</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS开发之使用CAGradientLayer绘制渐变色" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/23/iOS开发之使用CAGradientLayer绘制渐变色/" class="article-date">
+  	<time datetime="2015-08-23T13:16:54.000Z" itemprop="datePublished">2015-08-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS开发之使用CAGradientLayer绘制渐变色
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>你们知道如何在 App 中绘制渐变色吗？如果不知道请往下看</p>
+</blockquote>
+<p>最近在 App 开发过程中，遇到了渐变色的要求，费劲一番周折，终于解决，特来与大家分享！<br>绘制渐变色，需要用到 CoreAnimation 里面的一个类：<strong>CAGradientLayer</strong>，通过这个类，我们可以很方便的绘制渐变色。</p>
+<a id="more"></a>
+<p>下面我们就开始来绘制渐变色<br>1、创建一个 UIView：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    //  创建 UIView 用来承载渐变色</span><br><span class="line">    UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 50, 200)];</span><br><span class="line">    [self.view addSubview:myView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、创建渐变色颜色列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//  创建 CAGradientLayer 对象</span><br><span class="line">CAGradientLayer *gradientLayer = [CAGradientLayer layer];</span><br><span class="line"></span><br><span class="line">//  设置 gradientLayer 的 Frame</span><br><span class="line">gradientLayer.frame = myView.bounds;</span><br><span class="line"></span><br><span class="line">//  创建渐变色数组，需要转换为CGColor颜色</span><br><span class="line">gradientLayer.colors = @[(id)[UIColor redColor].CGColor,</span><br><span class="line">                         (id)[UIColor yellowColor].CGColor,</span><br><span class="line">                         (id)[UIColor blueColor].CGColor];</span><br><span class="line"></span><br><span class="line">//  设置三种颜色变化点，取值范围 0.0~1.0</span><br><span class="line">gradientLayer.locations = @[@(0.1f) ,@(0.4f)];</span><br><span class="line"></span><br><span class="line">//设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)</span><br><span class="line">gradientLayer.startPoint = CGPointMake(0, 0);</span><br><span class="line">gradientLayer.endPoint = CGPointMake(0, 1);</span><br><span class="line"></span><br><span class="line">//  添加渐变色到创建的 UIView 上去</span><br><span class="line">[myView.layer addSublayer:gradientLayer];</span><br></pre></td></tr></table></figure></p>
+<p>这样就能得到如下结果:<br><img src="http://v2.freep.cn/3tb_1603122149255w0n512293.png"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/01/07/iOS开发之NSNotification/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发之NSNotification</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 邦奇诺
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
