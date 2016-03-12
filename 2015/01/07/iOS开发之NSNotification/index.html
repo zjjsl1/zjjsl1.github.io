@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS开发之NSNotification | 邦奇诺的个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NSNotification：一个对象能够给其他任意数量的对象广播信息。对象之间可以没有耦合关系。
+
+上一次，我们分享了有关 KVO 的内容，但 KVO 只是一对一的关系，如果要用到一对多的关系的时候，该怎么办呢？这个时候就可以用到NSNotification（通知）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之NSNotification">
+<meta property="og:url" content="http://yoursite.com/2015/01/07/iOS开发之NSNotification/index.html">
+<meta property="og:site_name" content="邦奇诺的个人主页">
+<meta property="og:description" content="NSNotification：一个对象能够给其他任意数量的对象广播信息。对象之间可以没有耦合关系。
+
+上一次，我们分享了有关 KVO 的内容，但 KVO 只是一对一的关系，如果要用到一对多的关系的时候，该怎么办呢？这个时候就可以用到NSNotification（通知）">
+<meta property="og:updated_time" content="2016-03-12T13:04:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之NSNotification">
+<meta name="twitter:description" content="NSNotification：一个对象能够给其他任意数量的对象广播信息。对象之间可以没有耦合关系。
+
+上一次，我们分享了有关 KVO 的内容，但 KVO 只是一对一的关系，如果要用到一对多的关系的时候，该怎么办呢？这个时候就可以用到NSNotification（通知）">
+  
+    <link rel="alternative" href="/atom.xml" title="邦奇诺的个人主页" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://v2.freep.cn/3tb_160312100458b7bm512293.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">邦奇诺</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">大家好！我是邦奇诺！</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">大家好，我是邦奇诺，这里是我的新家！ www.iCoder-Heracles.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">邦奇诺</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://v2.freep.cn/3tb_160312100458b7bm512293.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">邦奇诺</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">大家好！我是邦奇诺！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS开发之NSNotification" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/07/iOS开发之NSNotification/" class="article-date">
+  	<time datetime="2015-01-07T08:36:12.000Z" itemprop="datePublished">2015-01-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS开发之NSNotification
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>NSNotification：一个对象能够给其他任意数量的对象广播信息。对象之间可以没有耦合关系。</p>
+</blockquote>
+<p>上一次，我们分享了有关 KVO 的内容，但 KVO 只是一对一的关系，如果要用到一对多的关系的时候，该怎么办呢？这个时候就可以用到NSNotification（通知）</p>
+<a id="more"></a>
+<h2 id="1、NSNotification-的基本知识"><a href="#1、NSNotification-的基本知识" class="headerlink" title="1、NSNotification 的基本知识"></a>1、NSNotification 的基本知识</h2><p><strong>相关类:</strong><br>1、NSNotification(通知)：封装了要广播的信息。<br>2、NSNotificationCenter(通知中心)：管理注册接收消息对象，广播消息。<br>3、observer(观察者)：需要监测广播信息的对象，即接收信息的对象。</p>
+<h2 id="2、NSNotification-的基本用法"><a href="#2、NSNotification-的基本用法" class="headerlink" title="2、NSNotification 的基本用法"></a>2、NSNotification 的基本用法</h2><p>下面举一个例子，来说明NSNotification的用法：<br>创建两个UIViewController：<br><strong>在 viewController_01.m 中：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    //  接收信息对象在通知中心注册，包括：信息名称、接收信息时的处理方法</span><br><span class="line">    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTheme:) name:@&quot;change&quot; object:nil];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    //  实现注册的方法</span><br><span class="line">- (void)changeTheme:(NSNotification *)sender &#123;</span><br><span class="line">    self.view.backgroundColor = sender.userInfo[@&quot;color&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>在 viewController_02.m 中：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    //  接收信息对象在通知中心注册，包括：信息名称、接收信息时的处理方法</span><br><span class="line">    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTheme:) name:@&quot;change&quot; object:nil];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    //  实现注册的方法</span><br><span class="line">- (void)changeTheme:(NSNotification *)sender &#123;</span><br><span class="line">    self.view.backgroundColor = sender.userInfo[@&quot;color&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>在 viewController_03.m 中：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//  创建 viewController_03.m 的 Button 对应的方法</span><br><span class="line">- (IBAction)changedColor:(UIButton *)sender &#123;</span><br><span class="line">    //  给已注册对象，发送消息，这里是一键修改背景颜色</span><br><span class="line">    [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;change&quot; object:nil userInfo:@&#123;@&quot;color&quot;: [UIColor lightGrayColor]&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 点击viewController_03里的button，viewcontroller_01和viewController_02的backgroundColor就会改变</strong></p>
+<p>通过NSNotification，可以很容易的完成一对多的消息发送！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/01/01/iOS开发之KVO/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发之KVO</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 邦奇诺
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -122,6 +122,65 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS开发之NSNotification" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/07/iOS开发之NSNotification/" class="article-date">
+  	<time datetime="2015-01-07T08:36:12.000Z" itemprop="datePublished">2015-01-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/07/iOS开发之NSNotification/">iOS开发之NSNotification</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>NSNotification：一个对象能够给其他任意数量的对象广播信息。对象之间可以没有耦合关系。</p>
+</blockquote>
+<p>上一次，我们分享了有关 KVO 的内容，但 KVO 只是一对一的关系，如果要用到一对多的关系的时候，该怎么办呢？这个时候就可以用到NSNotification（通知）</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/07/iOS开发之NSNotification/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS开发之KVO" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -213,13 +272,8 @@
 <p>MBProgressHUD是一款第三方工具，用来增加 App 的用户体验，俗称小菊花。</p>
 </blockquote>
 <h2 id="1、MBProgressHUD简介"><a href="#1、MBProgressHUD简介" class="headerlink" title="1、MBProgressHUD简介"></a>1、MBProgressHUD简介</h2><p>很多时候，我们进入页面的时候，因为程序正在读取数据，页面呈现出一片空白。这会引起用户的焦虑，造成不好的用户体验。这个时候，如果能用一个过渡，便会缓解这种状况。</p>
-<p><img src="http://v1.freep.cn/3tb_160312185434gt8d512293.png"  alt="01" /></p>
 <p><strong>MBProgressHUD</strong>就是为了满足这种需求开发出来的第三方工具，使用 MBProgressHUD 在空白期出现一个转动的小菊花，用来过滤。<br><strong>效果如下：</strong></p>
-<h2 id="2、MBProgressHUD的简单使用"><a href="#2、MBProgressHUD的简单使用" class="headerlink" title="2、MBProgressHUD的简单使用"></a>2、MBProgressHUD的简单使用</h2><p>我们现在模拟这样一个场景来进行对 MBProgressHUD 的讲解：</p>
-<blockquote>
-<p>通过点击一个 Button 然后等待加载一个 ImageView</p>
-</blockquote>
-<p><strong> 代码如下： </strong><br><strong>第一步：RootViewController.h 文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">#import &quot;MBProgressHUD.h&quot;</span><br><span class="line"></span><br><span class="line">@interface RootViewController : UIViewController</span><br><span class="line"></span><br><span class="line">//  1. 创建按钮</span><br><span class="line">@property(nonatomic, strong) UIButton *aButton;</span><br><span class="line">//  2. 创建显示视图</span><br><span class="line">@property(nonatomic, strong) UIView *aView;</span><br><span class="line">//  3. 创建加载视图</span><br><span class="line">@property(nonatomic, strong) MBProgressHUD *aProgressHUD;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://v1.freep.cn/3tb_160312185434gt8d512293.png"  alt="01" /></p>
       
     </div>
     
