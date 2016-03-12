@@ -18,7 +18,7 @@
 
 在我们编程中，很多时候，需要对一些对象进行监听，一旦这个对象发生变化，其他的对象就需要对其作出反应，KVO 就可以完成这项任务。
 1、KVO 的触发机制与使用步骤KVO触发机制：一个对象（观察者），监测另一对象（被观察者）的某属性是否发生变化，若被监测的属性发生的更改，会触发观察者的一个方法（方法名固">
-<meta property="og:updated_time" content="2016-03-12T12:00:03.000Z">
+<meta property="og:updated_time" content="2016-03-12T12:01:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之KVO">
 <meta name="twitter:description" content="KVO：（Key-Value-Observer）键值观察者，是观察者设计模式的一种具体实现。
@@ -169,6 +169,7 @@
 <p>在我们编程中，很多时候，需要对一些对象进行监听，一旦这个对象发生变化，其他的对象就需要对其作出反应，KVO 就可以完成这项任务。</p>
 <h2 id="1、KVO-的触发机制与使用步骤"><a href="#1、KVO-的触发机制与使用步骤" class="headerlink" title="1、KVO 的触发机制与使用步骤"></a>1、KVO 的触发机制与使用步骤</h2><p><strong>KVO触发机制：</strong><br>一个对象（观察者），监测另一对象（被观察者）的某属性是否发生变化，若被监测的属性发生的更改，会触发观察者的一个方法（方法名固定，类似代理方法）</p>
 <p><strong>KVO使用步骤：</strong><br>1、注册观察者（为被观察者指定观察者以及被观察属性）<br>2、实现回调方法<br>3、触发回调方法（被观察属性发生更改）<br>4、移除观察者</p>
+<a id="more"></a>
 <h2 id="2、KVO-的基本用法"><a href="#2、KVO-的基本用法" class="headerlink" title="2、KVO 的基本用法"></a>2、KVO 的基本用法</h2><p>下面举一个小例子来说明 KVO 的基本用法：<br>1）、我们先来创建一个Person类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface Person : NSObject</span><br><span class="line">//  姓名</span><br><span class="line">@property(nonatomic, copy) NSString *name;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
 <p>2）、在 <strong>ViewController.m</strong> 中创建 <strong>Person</strong> 类，并添加观察者对其监听：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    //  初始化Person</span><br><span class="line">    self.person = [Person new];</span><br><span class="line">    _person.name = @&quot;孙悟空&quot;;</span><br><span class="line">    </span><br><span class="line">    //  添加观察者</span><br><span class="line">    [_person addObserver:self forKeyPath:@&quot;name&quot; options:NSKeyValueObservingOptionNew context:(__bridge void *)self];</span><br><span class="line"></span><br><span class="line">    //  添加改变person值得手势</span><br><span class="line">    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];</span><br><span class="line">    [self.view addGestureRecognizer:tap];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
