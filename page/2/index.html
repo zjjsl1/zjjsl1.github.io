@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives | 邦奇诺的个人主页</title>
+  <title>邦奇诺的个人主页</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="邦奇诺的个人主页">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="邦奇诺的个人主页">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -122,170 +122,125 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS开发之NSUserDefaults" class="article article-type-post" itemscope itemprop="blogPost">
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/23/iOS开发之使用CAGradientLayer绘制渐变色/" class="archive-article-date">
-  	<time datetime="2015-08-23T13:16:54.000Z" itemprop="datePublished">Aug 23</time>
+    <div class="article-meta">
+      <a href="/2014/12/03/iOS开发之NSUserDefaults/" class="article-date">
+  	<time datetime="2014-12-03T13:16:54.000Z" itemprop="datePublished">2014-12-03</time>
 </a>
-        </div>
-    	 
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/23/iOS开发之使用CAGradientLayer绘制渐变色/">iOS开发之使用CAGradientLayer绘制渐变色</a>
+      <a class="article-title" href="/2014/12/03/iOS开发之NSUserDefaults/">iOS开发之NSUserDefaults</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/05/01/iOS开发之GCD（一）/" class="archive-article-date">
-  	<time datetime="2015-05-01T13:16:54.000Z" itemprop="datePublished">May 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/05/01/iOS开发之GCD（一）/">iOS开发之GCD（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/07/iOS开发之NSNotification/" class="archive-article-date">
-  	<time datetime="2015-01-07T08:36:12.000Z" itemprop="datePublished">Jan 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/07/iOS开发之NSNotification/">iOS开发之NSNotification</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/01/iOS开发之KVO/" class="archive-article-date">
-  	<time datetime="2015-01-01T08:36:12.000Z" itemprop="datePublished">Jan 1</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/iOS开发之KVO/">iOS开发之KVO</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+      </header>
       
-        </div></section>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>NSUserDefaults是系统自带的一个轻量级数据本地化的一个方法，其本质是一个单例。用户名、密码、网址等都适合使用NSUserDefaults来储存。对于自定义的对象需要对其归档才能储存。</p>
+</blockquote>
+<h2 id="1、NSUserDefaults-的基本用法"><a href="#1、NSUserDefaults-的基本用法" class="headerlink" title="1、NSUserDefaults 的基本用法"></a>1、NSUserDefaults 的基本用法</h2><p>NSUserDefaults是一个单例，由系统原生自带，使用方法简单，可以让数据本地化，自由传递。</p>
+<p><strong> NSUserDefaults可以直接存储的数据类型有：NSString，NSNumber，NSDate，NSArray，NSDictionary，BOOL </strong></p>
+<p>存储的方法是使用 Value-Key 的方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//  存储 NSString 对象到 NSUserDefaults 中</span><br><span class="line">NSString *userName = @&quot;Heracles&quot;;</span><br><span class="line">NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];</span><br><span class="line">[userDefaults setObject: userName forKey:@&quot;userName&quot;];</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/03/iOS开发之NSUserDefaults/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/12/25/iOS开发之MBProgressHUD/" class="archive-article-date">
-  	<time datetime="2014-12-25T08:46:54.000Z" itemprop="datePublished">Dec 25</time>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-邦奇诺的新家" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/11/邦奇诺的新家/" class="article-date">
+  	<time datetime="2014-11-11T13:16:54.000Z" itemprop="datePublished">2014-11-11</time>
 </a>
-        </div>
-    	 
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/12/25/iOS开发之MBProgressHUD/">iOS开发之MBProgressHUD</a>
+      <a class="article-title" href="/2014/11/11/邦奇诺的新家/">邦奇诺的新家</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </header>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>欢迎大家来我的新家玩！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
-
 </div>
       <footer id="footer">
   <div class="outer">
@@ -309,9 +264,9 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

@@ -181,6 +181,65 @@
 
 
   
+    <article id="post-iOS开发之GCD（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/01/iOS开发之GCD（一）/" class="article-date">
+  	<time datetime="2015-05-01T13:16:54.000Z" itemprop="datePublished">2015-05-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/01/iOS开发之GCD（一）/">iOS开发之GCD（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Grand Central Dispatch (GCD) 是异步执行任务的技术之一。一般应用程序中记述的线程管理用的代码在系统级中实现。开发者只需要定义想执行的任务并追加到适当的 Dispatch Queue 中，GCD 就能生成必要的线程并计划执行任务。由于线程管理是作为系统的一部分来实现的，因此可统一管理，也可执行任务，这样就比以前的线程更有效率。</p>
+</blockquote>
+<h2 id="1-什么是-GCD-？"><a href="#1-什么是-GCD-？" class="headerlink" title="1.什么是 GCD ？"></a>1.什么是 GCD ？</h2><p>我们在运行 App 的时候，有时候需要同时处理两件事情，如果这两件事情都放在一条线程里面执行的话，可能会造成线程卡顿，使 App 假死，如果我们能出现多条线程的话，让主线程执行 UI 显示，子线程处理数据的话，就能让 App 完美运行。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/01/iOS开发之GCD（一）/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS开发之NSNotification" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -362,120 +421,10 @@
 
 
   
-    <article id="post-iOS开发之NSUserDefaults" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2014/12/03/iOS开发之NSUserDefaults/" class="article-date">
-  	<time datetime="2014-12-03T13:16:54.000Z" itemprop="datePublished">2014-12-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/03/iOS开发之NSUserDefaults/">iOS开发之NSUserDefaults</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>NSUserDefaults是系统自带的一个轻量级数据本地化的一个方法，其本质是一个单例。用户名、密码、网址等都适合使用NSUserDefaults来储存。对于自定义的对象需要对其归档才能储存。</p>
-</blockquote>
-<h2 id="1、NSUserDefaults-的基本用法"><a href="#1、NSUserDefaults-的基本用法" class="headerlink" title="1、NSUserDefaults 的基本用法"></a>1、NSUserDefaults 的基本用法</h2><p>NSUserDefaults是一个单例，由系统原生自带，使用方法简单，可以让数据本地化，自由传递。</p>
-<p><strong> NSUserDefaults可以直接存储的数据类型有：NSString，NSNumber，NSDate，NSArray，NSDictionary，BOOL </strong></p>
-<p>存储的方法是使用 Value-Key 的方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//  存储 NSString 对象到 NSUserDefaults 中</span><br><span class="line">NSString *userName = @&quot;Heracles&quot;;</span><br><span class="line">NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];</span><br><span class="line">[userDefaults setObject: userName forKey:@&quot;userName&quot;];</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/12/03/iOS开发之NSUserDefaults/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-邦奇诺的新家" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/11/邦奇诺的新家/" class="article-date">
-  	<time datetime="2014-11-11T13:16:54.000Z" itemprop="datePublished">2014-11-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/11/邦奇诺的新家/">邦奇诺的新家</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>欢迎大家来我的新家玩！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS开发之GCD（一） | 邦奇诺的个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Grand Central Dispatch (GCD) 是异步执行任务的技术之一。一般应用程序中记述的线程管理用的代码在系统级中实现。开发者只需要定义想执行的任务并追加到适当的 Dispatch Queue 中，GCD 就能生成必要的线程并计划执行任务。由于线程管理是作为系统的一部分来实现的，因此可统一管理，也可执行任务，这样就比以前的线程更有效率。
+
+1.什么是 GCD ？我们在运行 App">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之GCD（一）">
+<meta property="og:url" content="http://yoursite.com/2015/05/01/iOS开发之GCD（一）/index.html">
+<meta property="og:site_name" content="邦奇诺的个人主页">
+<meta property="og:description" content="Grand Central Dispatch (GCD) 是异步执行任务的技术之一。一般应用程序中记述的线程管理用的代码在系统级中实现。开发者只需要定义想执行的任务并追加到适当的 Dispatch Queue 中，GCD 就能生成必要的线程并计划执行任务。由于线程管理是作为系统的一部分来实现的，因此可统一管理，也可执行任务，这样就比以前的线程更有效率。
+
+1.什么是 GCD ？我们在运行 App">
+<meta property="og:updated_time" content="2016-03-13T04:53:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之GCD（一）">
+<meta name="twitter:description" content="Grand Central Dispatch (GCD) 是异步执行任务的技术之一。一般应用程序中记述的线程管理用的代码在系统级中实现。开发者只需要定义想执行的任务并追加到适当的 Dispatch Queue 中，GCD 就能生成必要的线程并计划执行任务。由于线程管理是作为系统的一部分来实现的，因此可统一管理，也可执行任务，这样就比以前的线程更有效率。
+
+1.什么是 GCD ？我们在运行 App">
+  
+    <link rel="alternative" href="/atom.xml" title="邦奇诺的个人主页" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://v2.freep.cn/3tb_160312100458b7bm512293.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">邦奇诺</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">大家好！我是邦奇诺！QQ:476660805</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">大家好，我是邦奇诺，这里是我的新家！ www.iCoder-Heracles.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">邦奇诺</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://v2.freep.cn/3tb_160312100458b7bm512293.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">邦奇诺</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">大家好！我是邦奇诺！QQ:476660805</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS开发之GCD（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/01/iOS开发之GCD（一）/" class="article-date">
+  	<time datetime="2015-05-01T13:16:54.000Z" itemprop="datePublished">2015-05-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS开发之GCD（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Grand Central Dispatch (GCD) 是异步执行任务的技术之一。一般应用程序中记述的线程管理用的代码在系统级中实现。开发者只需要定义想执行的任务并追加到适当的 Dispatch Queue 中，GCD 就能生成必要的线程并计划执行任务。由于线程管理是作为系统的一部分来实现的，因此可统一管理，也可执行任务，这样就比以前的线程更有效率。</p>
+</blockquote>
+<h2 id="1-什么是-GCD-？"><a href="#1-什么是-GCD-？" class="headerlink" title="1.什么是 GCD ？"></a>1.什么是 GCD ？</h2><p>我们在运行 App 的时候，有时候需要同时处理两件事情，如果这两件事情都放在一条线程里面执行的话，可能会造成线程卡顿，使 App 假死，如果我们能出现多条线程的话，让主线程执行 UI 显示，子线程处理数据的话，就能让 App 完美运行。</p>
+<a id="more"></a>
+<p><strong>而 GCD 就是这样一项跨时代的技术，用难以置信的简洁，实现了极为复杂繁琐的多线程编程</strong></p>
+<p>看一段代码：<br><figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  开辟子线程</span></span><br><span class="line">dispatch_async(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">//  子线程处理数据</span></span><br><span class="line">    dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="comment">//  回到主线程处理结果</span></span><br><span class="line">    &#125;)<span class="comment">;</span></span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>以上代码就是 GCD 的一个简单使用，让程序在子线程长时间处理，处理结束之后，在主线程处理这个结果。仅仅是两行代码就能完成这么复杂的动作。</p>
+<h2 id="2、多线程编程"><a href="#2、多线程编程" class="headerlink" title="2、多线程编程"></a>2、多线程编程</h2><p>一个 CPU 芯片上有多个 CPU，我们调用多个 CPU ，就可以发挥 CPU 的最大功效，同时处理多项事情，也就是所谓的多线程。<br>但是多线程编程是一种极易发生各种问题的编程技术：</p>
+<ul>
+<li>死锁：两个线程互相等待对方处理事件，造成线程不动</li>
+<li>数据竞争：两个线程同时获取同一个数据</li>
+<li>消耗过多资源：线程过多，消耗太多资源</li>
+</ul>
+<p>尽管极易发生各种问题，也应当使用多线程。因为使用多线程编程可以保证应用程序的响应性能。</p>
+<p><strong>GCD 大大简化了偏于复杂的多线程编码的源代码，使得多线程编程变得简单。</strong></p>
+<p>下节将会介绍 GCD 的各个 API 。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/23/iOS开发之使用CAGradientLayer绘制渐变色/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iOS开发之使用CAGradientLayer绘制渐变色
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/07/iOS开发之NSNotification/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发之NSNotification</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 邦奇诺
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
