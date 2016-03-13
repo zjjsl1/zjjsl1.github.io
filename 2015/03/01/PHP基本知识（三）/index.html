@@ -9,9 +9,7 @@
   <meta name="description" content="今天又学习了一点PHP的用法：
 
 
-连接 MySQL 数据库系统，查询数据：
-
-12345678910111213141516171819202122232425262728293031323334353637&amp;lt;?php// 连接mysql数据库系统 ip 地址 用户名 密码$link = mysql_connect(&quot;127.0.0.1&quot;, &quot;root&quot;, &quot;&quot;);if($link)&amp;#">
+连接 MySQL 数据库系统，查询数据：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP基本知识（三）">
 <meta property="og:url" content="http://yoursite.com/2015/03/01/PHP基本知识（三）/index.html">
@@ -19,18 +17,14 @@
 <meta property="og:description" content="今天又学习了一点PHP的用法：
 
 
-连接 MySQL 数据库系统，查询数据：
-
-12345678910111213141516171819202122232425262728293031323334353637&amp;lt;?php// 连接mysql数据库系统 ip 地址 用户名 密码$link = mysql_connect(&quot;127.0.0.1&quot;, &quot;root&quot;, &quot;&quot;);if($link)&amp;#">
-<meta property="og:updated_time" content="2016-03-13T05:05:16.000Z">
+连接 MySQL 数据库系统，查询数据：">
+<meta property="og:updated_time" content="2016-03-13T05:08:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP基本知识（三）">
 <meta name="twitter:description" content="今天又学习了一点PHP的用法：
 
 
-连接 MySQL 数据库系统，查询数据：
-
-12345678910111213141516171819202122232425262728293031323334353637&amp;lt;?php// 连接mysql数据库系统 ip 地址 用户名 密码$link = mysql_connect(&quot;127.0.0.1&quot;, &quot;root&quot;, &quot;&quot;);if($link)&amp;#">
+连接 MySQL 数据库系统，查询数据：">
   
     <link rel="alternative" href="/atom.xml" title="邦奇诺的个人主页" type="application/atom+xml">
   
@@ -175,6 +169,7 @@
 <ul>
 <li>连接 MySQL 数据库系统，查询数据：</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">// 连接mysql数据库系统 ip 地址 用户名 密码</span><br><span class="line">$link = mysql_connect(<span class="string">"127.0.0.1"</span>, <span class="string">"root"</span>, <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($link)&#123;</span><br><span class="line">  // 连接成功</span><br><span class="line">  echo(<span class="string">"succeed!"</span>);</span><br><span class="line"></span><br><span class="line">  // 打开数据库</span><br><span class="line">  if(mysql_select_db(<span class="string">"lanou1"</span>)) &#123;</span><br><span class="line">    // 编写 sql 语句</span><br><span class="line">    $sql = <span class="string">"select username, password from l_user"</span>;</span><br><span class="line">    // 执行 sql 语句</span><br><span class="line">    $result = mysql_query($sql);</span><br><span class="line"></span><br><span class="line">    // 获取查询到的数据的个数</span><br><span class="line">    $count = mysql_num_rows($result);</span><br><span class="line">    echo($count);</span><br><span class="line"></span><br><span class="line">    $row = mysql_fetch_array($result);</span><br><span class="line">    $allUser = array();</span><br><span class="line"></span><br><span class="line">    // 从第一条数据开始获取, 直到结束</span><br><span class="line">    while($row = mysql_fetch_array($result, MYSQL_ASSOC))&#123;</span><br><span class="line">      echo($row.<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">      echo(json_encode($row).<span class="string">"&lt;BR&gt;"</span>);</span><br><span class="line">      $allUser[] = $row;</span><br><span class="line">    &#125;</span><br><span class="line">    echo(json_encode($allUser));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 关闭数据库</span><br><span class="line">mysql_close($link);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>连接 MySQL 数据库系统，验证结果：</li>
