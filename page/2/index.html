@@ -122,6 +122,187 @@
 
       <div class="body-wrap">
   
+    <article id="post-iOS开发之NSNotification" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/07/iOS开发之NSNotification/" class="article-date">
+  	<time datetime="2015-01-07T08:36:12.000Z" itemprop="datePublished">2015-01-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/07/iOS开发之NSNotification/">iOS开发之NSNotification</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>NSNotification：一个对象能够给其他任意数量的对象广播信息。对象之间可以没有耦合关系。</p>
+</blockquote>
+<p>上一次，我们分享了有关 KVO 的内容，但 KVO 只是一对一的关系，如果要用到一对多的关系的时候，该怎么办呢？这个时候就可以用到NSNotification（通知）</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/07/iOS开发之NSNotification/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOS开发之KVO" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/iOS开发之KVO/" class="article-date">
+  	<time datetime="2015-01-01T08:36:12.000Z" itemprop="datePublished">2015-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/01/iOS开发之KVO/">iOS开发之KVO</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>KVO：（Key-Value-Observer）键值观察者，是观察者设计模式的一种具体实现。</p>
+</blockquote>
+<p>在我们编程中，很多时候，需要对一些对象进行监听，一旦这个对象发生变化，其他的对象就需要对其作出反应，KVO 就可以完成这项任务。</p>
+<h2 id="1、KVO-的触发机制与使用步骤"><a href="#1、KVO-的触发机制与使用步骤" class="headerlink" title="1、KVO 的触发机制与使用步骤"></a>1、KVO 的触发机制与使用步骤</h2><p><strong>KVO触发机制：</strong><br>一个对象（观察者），监测另一对象（被观察者）的某属性是否发生变化，若被监测的属性发生的更改，会触发观察者的一个方法（方法名固定，类似代理方法）</p>
+<p><strong>KVO使用步骤：</strong><br>1、注册观察者（为被观察者指定观察者以及被观察属性）<br>2、实现回调方法<br>3、触发回调方法（被观察属性发生更改）<br>4、移除观察者</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/01/iOS开发之KVO/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOS开发之MBProgressHUD" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/25/iOS开发之MBProgressHUD/" class="article-date">
+  	<time datetime="2014-12-25T08:46:54.000Z" itemprop="datePublished">2014-12-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/25/iOS开发之MBProgressHUD/">iOS开发之MBProgressHUD</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>MBProgressHUD是一款第三方工具，用来增加 App 的用户体验，俗称小菊花。</p>
+</blockquote>
+<h2 id="1、MBProgressHUD简介"><a href="#1、MBProgressHUD简介" class="headerlink" title="1、MBProgressHUD简介"></a>1、MBProgressHUD简介</h2><p>很多时候，我们进入页面的时候，因为程序正在读取数据，页面呈现出一片空白。这会引起用户的焦虑，造成不好的用户体验。这个时候，如果能用一个过渡，便会缓解这种状况。</p>
+<p><strong>MBProgressHUD</strong>就是为了满足这种需求开发出来的第三方工具，使用 MBProgressHUD 在空白期出现一个转动的小菊花，用来过滤。<br><strong>效果如下：</strong></p>
+<p><img src="http://v1.freep.cn/3tb_160312185434gt8d512293.png"  alt="01" /></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/12/25/iOS开发之MBProgressHUD/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS开发之NSUserDefaults" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
